@@ -1,0 +1,184 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ShopVerse design system — white, black, beige & blue */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-beige: var(--beige);
+  --color-beige-foreground: var(--beige-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 6px 24px -8px oklch(0.2 0.05 250 / 0.18);
+  --shadow-glow: 0 12px 40px -12px oklch(0.55 0.18 250 / 0.45);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.99 0.005 80);          /* near-white */
+  --foreground: oklch(0.16 0.02 250);          /* near-black */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.02 250);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.02 250);
+
+  --primary: oklch(0.18 0.02 250);             /* black */
+  --primary-foreground: oklch(0.98 0.005 80);
+
+  --brand: oklch(0.55 0.18 250);               /* blue */
+  --brand-foreground: oklch(0.98 0 0);
+
+  --beige: oklch(0.93 0.025 80);               /* warm beige */
+  --beige-foreground: oklch(0.2 0.02 250);
+
+  --secondary: oklch(0.96 0.012 80);
+  --secondary-foreground: oklch(0.18 0.02 250);
+
+  --muted: oklch(0.96 0.008 80);
+  --muted-foreground: oklch(0.45 0.02 250);
+
+  --accent: oklch(0.93 0.025 80);
+  --accent-foreground: oklch(0.18 0.02 250);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.9 0.01 80);
+  --input: oklch(0.9 0.01 80);
+  --ring: oklch(0.55 0.18 250);
+}
+
+.dark {
+  --background: oklch(0.13 0.015 250);
+  --foreground: oklch(0.97 0.005 80);
+
+  --card: oklch(0.18 0.02 250);
+  --card-foreground: oklch(0.97 0.005 80);
+
+  --popover: oklch(0.18 0.02 250);
+  --popover-foreground: oklch(0.97 0.005 80);
+
+  --primary: oklch(0.97 0.005 80);
+  --primary-foreground: oklch(0.16 0.02 250);
+
+  --brand: oklch(0.7 0.17 250);
+  --brand-foreground: oklch(0.13 0.015 250);
+
+  --beige: oklch(0.28 0.02 80);
+  --beige-foreground: oklch(0.97 0.005 80);
+
+  --secondary: oklch(0.22 0.02 250);
+  --secondary-foreground: oklch(0.97 0.005 80);
+
+  --muted: oklch(0.22 0.02 250);
+  --muted-foreground: oklch(0.7 0.02 250);
+
+  --accent: oklch(0.28 0.02 80);
+  --accent-foreground: oklch(0.97 0.005 80);
+
+  --destructive: oklch(0.7 0.19 22);
+  --destructive-foreground: oklch(0.97 0 0);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.7 0.17 250);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+/* ---------- Reusable animations ---------- */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 oklch(0.55 0.18 250 / 0.45); }
+  70%  { box-shadow: 0 0 0 12px oklch(0.55 0.18 250 / 0); }
+  100% { box-shadow: 0 0 0 0 oklch(0.55 0.18 250 / 0); }
+}
+
+@utility animate-fade-in   { animation: fade-in 0.5s ease-out both; }
+@utility animate-float-up  { animation: float-up 0.6s ease-out both; }
+@utility animate-pulse-ring{ animation: pulse-ring 2s infinite; }
+
+@utility skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-muted) 0%,
+    color-mix(in oklab, var(--color-muted) 60%, white) 50%,
+    var(--color-muted) 100%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: var(--radius);
+}
+
+@utility container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+@utility hover-lift {
+  @apply transition-all duration-300;
+}
+.hover-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+
+@utility btn-brand {
+  background-color: var(--color-brand);
+  color: var(--color-brand-foreground);
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg active:scale-95;
+}
+@utility btn-outline-dark {
+  border: 1px solid var(--color-foreground);
+  color: var(--color-foreground);
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium transition-all duration-300 hover:bg-foreground hover:text-background active:scale-95;
+}
