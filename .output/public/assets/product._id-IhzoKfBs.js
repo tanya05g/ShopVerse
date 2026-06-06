@@ -1,0 +1,1 @@
+import{j as o}from"./index-BPJTRmIE.js";import{L as t}from"./Layout-Cq7EmnW7.js";const s=()=>o.jsx(t,{children:o.jsx("div",{className:"container-x py-24 text-center",children:o.jsx("h1",{className:"font-display text-3xl",children:"Product not found"})})});export{s as notFoundComponent};
